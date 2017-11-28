@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.seapip.thomas.wearify.AddWifiActivity;
+import com.seapip.thomas.wearify.ui.activity.AddWifiActivity;
 import com.seapip.thomas.wearify.spotify.Callback;
 import com.seapip.thomas.wearify.spotify.Service;
 import com.seapip.thomas.wearify.spotify.objects.Album;

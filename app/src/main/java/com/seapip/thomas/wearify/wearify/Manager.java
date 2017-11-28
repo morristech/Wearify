@@ -3,6 +3,8 @@ package com.seapip.thomas.wearify.wearify;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
+import com.seapip.thomas.wearify.BuildConfig;
+
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -38,7 +40,7 @@ public class Manager {
             }
         });
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://wearify.seapip.com/")
+                .baseUrl(BuildConfig.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient.build())
                 .build();

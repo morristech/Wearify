@@ -16,7 +16,7 @@
         android:paddingStart="@dimen/list_padding"
         android:paddingTop="8dp">
 
-        <com.seapip.thomas.wearify.RoundImageButtonView
+        <com.seapip.thomas.wearify.widget.RoundImageButtonView
             android:id="@+id/button_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"

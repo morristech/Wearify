@@ -19,10 +19,11 @@ import android.support.wearable.media.MediaControlConstants;
 import android.view.KeyEvent;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.seapip.thomas.wearify.DeviceActivity;
-import com.seapip.thomas.wearify.NowPlayingActivity;
+import com.bumptech.glide.request.transition.Transition;
+import com.seapip.thomas.wearify.GlideApp;
+import com.seapip.thomas.wearify.ui.activity.DeviceActivity;
+import com.seapip.thomas.wearify.ui.activity.NowPlayingActivity;
 import com.seapip.thomas.wearify.R;
 import com.seapip.thomas.wearify.spotify.controller.ConnectController;
 import com.seapip.thomas.wearify.spotify.controller.Controller;
@@ -151,7 +152,7 @@ public class Service extends android.app.Service {
         mSession.setMetadata(mMediaMetadataBuilder.build());
         mMediaMetadataTarget = new SimpleTarget<Bitmap>() {
             @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+            public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
                 mMediaMetadataBuilder.putBitmap(MediaMetadata.METADATA_KEY_ART, resource);
                 mSession.setMetadata(mMediaMetadataBuilder.build());
             }
@@ -282,9 +283,9 @@ public class Service extends android.app.Service {
                         mMediaMetadataBuilder.putString(MediaMetadata.METADATA_KEY_ARTIST, Util.names(currentlyPlaying.item.artists).trim());
                         mMediaMetadataBuilder.putBitmap(MediaMetadata.METADATA_KEY_ART, null);
                         mSession.setMetadata(mMediaMetadataBuilder.build());
-                        Glide.with(getApplicationContext())
-                                .load(Util.largestImageUrl(currentlyPlaying.item.album.images))
+                        GlideApp.with(getApplicationContext())
                                 .asBitmap()
+                                .load(Util.largestImageUrl(currentlyPlaying.item.album.images))
                                 .fitCenter()
                                 .into(mMediaMetadataTarget);
                     }
