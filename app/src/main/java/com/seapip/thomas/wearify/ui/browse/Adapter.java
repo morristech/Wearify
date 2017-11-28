@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.v7.widget.RecyclerView;
-import android.support.wearable.view.WearableRecyclerView;
+import android.support.wear.widget.WearableRecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.seapip.thomas.wearify.GlideApp;
 import com.seapip.thomas.wearify.R;

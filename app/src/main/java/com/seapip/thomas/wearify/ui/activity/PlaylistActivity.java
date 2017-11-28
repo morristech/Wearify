@@ -4,29 +4,28 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.wearable.view.WearableRecyclerView;
-import android.support.wearable.view.drawer.WearableActionDrawer;
-import android.support.wearable.view.drawer.WearableDrawerLayout;
-import android.support.wearable.view.drawer.WearableNavigationDrawer;
+import android.support.wear.widget.WearableRecyclerView;
+import android.support.wear.widget.drawer.WearableActionDrawerView;
+import android.support.wear.widget.drawer.WearableDrawerLayout;
+import android.support.wear.widget.drawer.WearableNavigationDrawerView;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.seapip.thomas.wearify.GlideApp;
 import com.seapip.thomas.wearify.R;
-import com.seapip.thomas.wearify.ui.browse.ActionButtonSmall;
-import com.seapip.thomas.wearify.ui.browse.Activity;
-import com.seapip.thomas.wearify.ui.browse.Adapter;
-import com.seapip.thomas.wearify.ui.browse.Header;
-import com.seapip.thomas.wearify.ui.browse.Item;
-import com.seapip.thomas.wearify.ui.browse.Loading;
-import com.seapip.thomas.wearify.ui.browse.OnClick;
 import com.seapip.thomas.wearify.spotify.Callback;
 import com.seapip.thomas.wearify.spotify.objects.Paging;
 import com.seapip.thomas.wearify.spotify.objects.Playlist;
 import com.seapip.thomas.wearify.spotify.objects.PlaylistTrack;
 import com.seapip.thomas.wearify.spotify.objects.User;
 import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
+import com.seapip.thomas.wearify.ui.browse.ActionButtonSmall;
+import com.seapip.thomas.wearify.ui.browse.BaseActivity;
+import com.seapip.thomas.wearify.ui.browse.Adapter;
+import com.seapip.thomas.wearify.ui.browse.Header;
+import com.seapip.thomas.wearify.ui.browse.Item;
+import com.seapip.thomas.wearify.ui.browse.Loading;
+import com.seapip.thomas.wearify.ui.browse.OnClick;
 
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ import static com.seapip.thomas.wearify.spotify.Service.getWebAPI;
 import static com.seapip.thomas.wearify.spotify.Util.largestImageUrl;
 import static com.seapip.thomas.wearify.spotify.Util.songCount;
 
-public class PlaylistActivity extends Activity {
+public class PlaylistActivity extends BaseActivity {
 
     private String mUri;
     private WearableRecyclerView mRecyclerView;
@@ -52,8 +51,8 @@ public class PlaylistActivity extends Activity {
         mUri = getIntent().getStringExtra("uri");
 
         setDrawers((WearableDrawerLayout) findViewById(R.id.drawer_layout),
-                (WearableNavigationDrawer) findViewById(R.id.top_navigation_drawer),
-                (WearableActionDrawer) findViewById(R.id.bottom_action_drawer), 1);
+                (WearableNavigationDrawerView) findViewById(R.id.top_navigation_drawer),
+                (WearableActionDrawerView) findViewById(R.id.bottom_action_drawer), 1);
 
         mRecyclerView = (WearableRecyclerView) findViewById(R.id.content);
         setGradientOverlay(mRecyclerView, (ImageView) findViewById(R.id.background_overlay));

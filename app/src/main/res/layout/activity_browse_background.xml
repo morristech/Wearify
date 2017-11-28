@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.wearable.view.drawer.WearableDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.wear.widget.drawer.WearableDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.wearable.view.WearableRecyclerView
+    <android.support.wear.widget.WearableRecyclerView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,18 +25,18 @@
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical" />
 
-    <android.support.wearable.view.drawer.WearableNavigationDrawer
+    <android.support.wear.widget.drawer.WearableNavigationDrawerView
         android:id="@+id/top_navigation_drawer"
-        app:navigation_style="single_page"
+        app:navigationStyle="singlePage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#222222" />
 
-    <android.support.wearable.view.drawer.WearableActionDrawer
+    <android.support.wear.widget.drawer.WearableActionDrawerView
         android:id="@+id/bottom_action_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00ffe0" />
 
 
-</android.support.wearable.view.drawer.WearableDrawerLayout>
+</android.support.wear.widget.drawer.WearableDrawerLayout>

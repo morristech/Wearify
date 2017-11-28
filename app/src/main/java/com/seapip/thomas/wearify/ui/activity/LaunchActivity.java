@@ -1,11 +1,11 @@
 package com.seapip.thomas.wearify.ui.activity;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 
 import com.seapip.thomas.wearify.R;
@@ -14,7 +14,7 @@ import com.seapip.thomas.wearify.wearify.Token;
 
 import static com.seapip.thomas.wearify.wearify.Manager.getToken;
 
-public class LaunchActivity extends WearableActivity {
+public class LaunchActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

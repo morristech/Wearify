@@ -11,7 +11,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.widget.Toast;
 
-import com.seapip.thomas.wearify.ui.activity.AddWifiActivity;
+import com.seapip.thomas.wearify.BuildConfig;
 import com.seapip.thomas.wearify.spotify.Callback;
 import com.seapip.thomas.wearify.spotify.Service;
 import com.seapip.thomas.wearify.spotify.objects.Album;
@@ -22,6 +22,7 @@ import com.seapip.thomas.wearify.spotify.objects.Image;
 import com.seapip.thomas.wearify.spotify.objects.Playlist;
 import com.seapip.thomas.wearify.spotify.objects.Track;
 import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
+import com.seapip.thomas.wearify.ui.activity.AddWifiActivity;
 import com.seapip.thomas.wearify.wearify.Token;
 import com.spotify.sdk.android.player.Config;
 import com.spotify.sdk.android.player.ConnectionStateCallback;
@@ -81,7 +82,8 @@ public class NativeController implements Controller, Player.NotificationCallback
             @Override
             public void onSuccess(Token token) {
                 if (mPlayer == null) {
-                    Config playerConfig = new Config(mContext, token.access_token, CLIENT_ID);
+                    Config playerConfig = new Config(mContext, token.access_token, BuildConfig
+                            .CLIENT_ID);
 
                     mPlayer = Spotify.getPlayer(playerConfig, this, new SpotifyPlayer.InitializationObserver() {
                         @Override

@@ -1,14 +1,14 @@
 package com.seapip.thomas.wearify.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.seapip.thomas.wearify.R;
 
-public class AddWifiActivity extends WearableActivity {
+public class AddWifiActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

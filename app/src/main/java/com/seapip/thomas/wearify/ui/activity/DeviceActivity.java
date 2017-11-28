@@ -1,5 +1,6 @@
 package com.seapip.thomas.wearify.ui.activity;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,21 +10,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.wearable.activity.WearableActivity;
-import android.support.wearable.view.WearableRecyclerView;
+import android.support.wear.widget.WearableRecyclerView;
 
 import com.seapip.thomas.wearify.R;
-import com.seapip.thomas.wearify.ui.browse.Adapter;
-import com.seapip.thomas.wearify.ui.browse.Header;
-import com.seapip.thomas.wearify.ui.browse.Item;
-import com.seapip.thomas.wearify.ui.browse.Loading;
-import com.seapip.thomas.wearify.ui.browse.OnClick;
 import com.seapip.thomas.wearify.spotify.Callback;
 import com.seapip.thomas.wearify.spotify.Service;
 import com.seapip.thomas.wearify.spotify.controller.Controller;
 import com.seapip.thomas.wearify.spotify.objects.Device;
 import com.seapip.thomas.wearify.spotify.objects.Devices;
 import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
+import com.seapip.thomas.wearify.ui.browse.Adapter;
+import com.seapip.thomas.wearify.ui.browse.Header;
+import com.seapip.thomas.wearify.ui.browse.Item;
+import com.seapip.thomas.wearify.ui.browse.Loading;
+import com.seapip.thomas.wearify.ui.browse.OnClick;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ import static com.seapip.thomas.wearify.spotify.Service.CONNECT_CONTROLLER;
 import static com.seapip.thomas.wearify.spotify.Service.NATIVE_CONTROLLER;
 import static com.seapip.thomas.wearify.spotify.Service.getWebAPI;
 
-public class DeviceActivity extends WearableActivity {
+public class DeviceActivity extends Activity {
 
     private boolean mIsBound;
     private Service mController;

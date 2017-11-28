@@ -1,5 +1,6 @@
 package com.seapip.thomas.wearify.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,7 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.wearable.activity.WearableActivity;
+import android.support.wear.ambient.AmbientMode;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class QRActivity extends WearableActivity {
+public class QRActivity extends Activity implements AmbientMode.AmbientCallbackProvider {
 
     private String mToken;
     private String mKey;
@@ -52,17 +53,19 @@ public class QRActivity extends WearableActivity {
     private Bitmap mQRBitmap;
     private Bitmap mAmbientQRBitmap;
     private boolean mAmbient;
+    private AmbientMode.AmbientController mAmbientController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setAmbientEnabled();
+        mAmbientController = AmbientMode.attachAmbientSupport(this);
+
         setContentView(R.layout.activity_qr);
-        mLayout = (RelativeLayout) findViewById(R.id.layout);
-        mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        mLayout = findViewById(R.id.layout);
+        mProgressBar = findViewById(R.id.progress_bar);
         mProgressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#222222"),
                 PorterDuff.Mode.SRC_ATOP);
-        mQRCodeView = (ImageView) findViewById(R.id.QRCode);
+        mQRCodeView = findViewById(R.id.QRCode);
         Display display = getWindowManager().getDefaultDisplay();
         final Point size = new Point();
         display.getSize(size);
@@ -180,16 +183,26 @@ public class QRActivity extends WearableActivity {
     }
 
     @Override
-    public void onEnterAmbient(Bundle ambientDetails) {
-        super.onEnterAmbient(ambientDetails);
-        mAmbient = true;
-        drawQRCode();
+    public AmbientMode.AmbientCallback getAmbientCallback() {
+        return new AmbientCallback();
     }
 
-    @Override
-    public void onExitAmbient() {
-        super.onExitAmbient();
-        mAmbient = false;
-        drawQRCode();
+    private class AmbientCallback extends AmbientMode.AmbientCallback {
+        @Override
+        public void onEnterAmbient(Bundle ambientDetails) {
+            mAmbient = true;
+            drawQRCode();
+        }
+
+        @Override
+        public void onExitAmbient() {
+            mAmbient = false;
+            drawQRCode();
+        }
+
+        @Override
+        public void onUpdateAmbient() {
+        }
     }
+
 }

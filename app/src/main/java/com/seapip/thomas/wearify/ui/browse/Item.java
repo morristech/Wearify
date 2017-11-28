@@ -1,13 +1,13 @@
 package com.seapip.thomas.wearify.ui.browse;
 
 import android.graphics.drawable.Drawable;
-import android.support.wearable.view.WearableRecyclerView;
+import android.support.wear.widget.WearableRecyclerView;
 
+import com.seapip.thomas.wearify.spotify.Util;
 import com.seapip.thomas.wearify.spotify.objects.Album;
 import com.seapip.thomas.wearify.spotify.objects.Artist;
 import com.seapip.thomas.wearify.spotify.objects.Playlist;
 import com.seapip.thomas.wearify.spotify.objects.Track;
-import com.seapip.thomas.wearify.spotify.Util;
 
 import static com.seapip.thomas.wearify.spotify.Util.names;
 import static com.seapip.thomas.wearify.spotify.Util.smallestImageUrl;

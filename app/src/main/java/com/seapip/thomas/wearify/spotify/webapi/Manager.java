@@ -3,7 +3,6 @@ package com.seapip.thomas.wearify.spotify.webapi;
 import android.content.Context;
 
 import com.seapip.thomas.wearify.spotify.Callback;
-import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
 import com.seapip.thomas.wearify.wearify.Token;
 
 import java.io.IOException;

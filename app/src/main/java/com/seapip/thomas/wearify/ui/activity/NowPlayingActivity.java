@@ -5,9 +5,9 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.wearable.view.drawer.WearableActionDrawer;
-import android.support.wearable.view.drawer.WearableDrawerLayout;
-import android.support.wearable.view.drawer.WearableNavigationDrawer;
+import android.support.wear.widget.drawer.WearableActionDrawerView;
+import android.support.wear.widget.drawer.WearableDrawerLayout;
+import android.support.wear.widget.drawer.WearableNavigationDrawerView;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,14 +17,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.seapip.thomas.wearify.GlideApp;
 import com.seapip.thomas.wearify.R;
-import com.seapip.thomas.wearify.widget.RoundImageButtonView;
-import com.seapip.thomas.wearify.ui.browse.Activity;
 import com.seapip.thomas.wearify.spotify.Util;
 import com.seapip.thomas.wearify.spotify.controller.Controller;
 import com.seapip.thomas.wearify.spotify.objects.CurrentlyPlaying;
+import com.seapip.thomas.wearify.ui.browse.BaseActivity;
+import com.seapip.thomas.wearify.widget.RoundImageButtonView;
 
 import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
@@ -32,11 +31,11 @@ import static android.view.View.VISIBLE;
 import static com.seapip.thomas.wearify.spotify.Service.INTERVAL;
 import static com.seapip.thomas.wearify.spotify.Util.largestImageUrl;
 
-public class NowPlayingActivity extends Activity implements Controller.Callbacks {
+public class NowPlayingActivity extends BaseActivity implements Controller.Callbacks {
 
     private boolean mAmbient;
     private WearableDrawerLayout mDrawerLayout;
-    private WearableNavigationDrawer mNavigationDrawer;
+    private WearableNavigationDrawerView mNavigationDrawer;
     private ImageView mBackgroundImage;
     private FrameLayout mControls;
     private ProgressBar mProgressBar;
@@ -49,7 +48,7 @@ public class NowPlayingActivity extends Activity implements Controller.Callbacks
     private TextView mSubTitle;
     private CircularProgressView mProgress;
     private Handler mProgressHandler;
-    private WearableActionDrawer mActionDrawer;
+    private WearableActionDrawerView mActionDrawer;
     private MenuItem mShuffleMenuItem;
     private MenuItem mRepeatMenuItem;
     private MenuItem mDeviceMenuItem;
@@ -66,9 +65,9 @@ public class NowPlayingActivity extends Activity implements Controller.Callbacks
         setAmbientEnabled();
         setContentView(R.layout.activity_now_playing);
 
-        mNavigationDrawer = (WearableNavigationDrawer) findViewById(R.id.top_navigation_drawer);
-        mActionDrawer = (WearableActionDrawer) findViewById(R.id.bottom_action_drawer);
-        mDrawerLayout = (WearableDrawerLayout) findViewById(R.id.drawer_layout);
+        mNavigationDrawer = findViewById(R.id.top_navigation_drawer);
+        mActionDrawer = findViewById(R.id.bottom_action_drawer);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         mBackgroundImage = (ImageView) findViewById(R.id.background_image);
         mControls = (FrameLayout) findViewById(R.id.controls);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);

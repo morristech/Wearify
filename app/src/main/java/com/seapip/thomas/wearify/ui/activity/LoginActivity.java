@@ -1,13 +1,13 @@
 package com.seapip.thomas.wearify.ui.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.wearable.activity.WearableActivity;
 import android.view.View;
 
 import com.seapip.thomas.wearify.R;
 
-public class LoginActivity extends WearableActivity {
+public class LoginActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

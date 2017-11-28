@@ -5,24 +5,24 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.wearable.view.WearableRecyclerView;
-import android.support.wearable.view.drawer.WearableActionDrawer;
-import android.support.wearable.view.drawer.WearableDrawerLayout;
-import android.support.wearable.view.drawer.WearableNavigationDrawer;
+import android.support.wear.widget.WearableRecyclerView;
+import android.support.wear.widget.drawer.WearableActionDrawerView;
+import android.support.wear.widget.drawer.WearableDrawerLayout;
+import android.support.wear.widget.drawer.WearableNavigationDrawerView;
 
 import com.seapip.thomas.wearify.R;
-import com.seapip.thomas.wearify.ui.browse.Activity;
+import com.seapip.thomas.wearify.spotify.Callback;
+import com.seapip.thomas.wearify.spotify.Util;
+import com.seapip.thomas.wearify.spotify.objects.Paging;
+import com.seapip.thomas.wearify.spotify.objects.SavedTrack;
+import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
+import com.seapip.thomas.wearify.ui.browse.BaseActivity;
 import com.seapip.thomas.wearify.ui.browse.Adapter;
 import com.seapip.thomas.wearify.ui.browse.Header;
 import com.seapip.thomas.wearify.ui.browse.Item;
 import com.seapip.thomas.wearify.ui.browse.LetterGroupHeader;
 import com.seapip.thomas.wearify.ui.browse.Loading;
 import com.seapip.thomas.wearify.ui.browse.OnClick;
-import com.seapip.thomas.wearify.spotify.Callback;
-import com.seapip.thomas.wearify.spotify.objects.Paging;
-import com.seapip.thomas.wearify.spotify.objects.SavedTrack;
-import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
-import com.seapip.thomas.wearify.spotify.Util;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 import static com.seapip.thomas.wearify.spotify.Service.getWebAPI;
 
-public class AlbumsActivity extends Activity {
+public class AlbumsActivity extends BaseActivity {
 
     private WearableRecyclerView mRecyclerView;
     private ArrayList<Item> mItems;
@@ -44,8 +44,8 @@ public class AlbumsActivity extends Activity {
         setContentView(R.layout.activity_browse);
 
         setDrawers((WearableDrawerLayout) findViewById(R.id.drawer_layout),
-                (WearableNavigationDrawer) findViewById(R.id.top_navigation_drawer),
-                (WearableActionDrawer) findViewById(R.id.bottom_action_drawer), 1);
+                (WearableNavigationDrawerView) findViewById(R.id.top_navigation_drawer),
+                (WearableActionDrawerView) findViewById(R.id.bottom_action_drawer), 1);
 
         mRecyclerView = (WearableRecyclerView) findViewById(R.id.content);
         mItems = new ArrayList<>();

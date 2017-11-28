@@ -15,15 +15,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
-import android.support.wearable.media.MediaControlConstants;
 import android.view.KeyEvent;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.seapip.thomas.wearify.GlideApp;
-import com.seapip.thomas.wearify.ui.activity.DeviceActivity;
-import com.seapip.thomas.wearify.ui.activity.NowPlayingActivity;
 import com.seapip.thomas.wearify.R;
 import com.seapip.thomas.wearify.spotify.controller.ConnectController;
 import com.seapip.thomas.wearify.spotify.controller.Controller;
@@ -35,6 +31,8 @@ import com.seapip.thomas.wearify.spotify.objects.Track;
 import com.seapip.thomas.wearify.spotify.objects.Transfer;
 import com.seapip.thomas.wearify.spotify.webapi.Manager;
 import com.seapip.thomas.wearify.spotify.webapi.WebAPI;
+import com.seapip.thomas.wearify.ui.activity.DeviceActivity;
+import com.seapip.thomas.wearify.ui.activity.NowPlayingActivity;
 
 import java.util.ArrayList;
 
@@ -158,8 +156,8 @@ public class Service extends android.app.Service {
             }
         };
         Bundle sessionExtras = new Bundle();
-        sessionExtras.putBoolean(MediaControlConstants.EXTRA_RESERVE_SLOT_SKIP_TO_PREVIOUS, true);
-        sessionExtras.putBoolean(MediaControlConstants.EXTRA_RESERVE_SLOT_SKIP_TO_NEXT, true);
+//        sessionExtras.putBoolean(MediaControlConstants.EXTRA_RESERVE_SLOT_SKIP_TO_PREVIOUS, true);
+//        sessionExtras.putBoolean(MediaControlConstants.EXTRA_RESERVE_SLOT_SKIP_TO_NEXT, true);
         mSession.setExtras(sessionExtras);
         mBinder = new ControllerBinder();
         mCallbacks = new ArrayList<>();
