@@ -261,7 +261,7 @@ public class NativeController implements Controller, Player.NotificationCallback
             @Override
             public void onSuccess() {
                 if (uris != null) {
-                    queue(uris, 1);
+                    queue(uris, position + 1);
                     /*
                     Handler handler = new Handler();
                     for (int i = 1; i < uris.length; i++) {
@@ -283,7 +283,7 @@ public class NativeController implements Controller, Player.NotificationCallback
             public void onError(Error error) {
 
             }
-        }, contextUri != null ? contextUri : uris[0], contextUri != null ? position : 0, 0);
+        }, contextUri != null ? contextUri : uris[position], contextUri != null ? position : 0, 0);
     }
 
     private void queue(final String[] uris, final int offset) {
